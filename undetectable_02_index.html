@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sixty Seconds Interactive Video</title>
+  <style>
+    /* Global styles */
+
+    @font-face {
+      font-family: 'Gilroy ExtraBold';
+      src: url('https://res.cloudinary.com/sixty-seconds/raw/authenticated/s--m3IYMIkr--/v1743494955/2025%20Rive%20Projects/Rive%20Preview%20Assets/Gilroy-ExtraBold.TTF') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      
+    }
+    
+    /* A common container for consistent horizontal spacing */
+    #container {
+      padding: 0 200px;
+      box-sizing: border-box;
+    }
+
+    /*********************************
+     *  TOP TOOLBAR / NAV STYLES
+     *********************************/
+    #topbar {
+      background-color: rgba(255, 255, 255, 0.1); /* White with 10% opacity */
+      border: 1px solid white;                    /* Thin white outline */
+      border-radius: 9999px;                      /* Fully rounded (pill shape) */
+      padding: 10px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);   /* Optional subtle shadow */
+      margin: 20px 0; /* Vertical margin only */
+	margin-bottom: 150px;
+    }
+    
+    #topbar .logo img {
+      height: 40px; /* Adjust as needed */
+    }
+    
+    /* Instead of nav links, display text on the right */
+    #topbar .nav-text {
+	font-family: 'Gilroy ExtraBold', sans-serif;
+      color: white;
+      font-size: 16px;
+      
+    }
+    
+    
+    
+    /* Optional: Remove extra padding from widget-wrapper so that the container controls width */
+    #widget-wrapper {
+      box-sizing: border-box;
+	margin-bottom: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <!-- TOP TOOLBAR -->
+    <header id="topbar">
+      <div class="logo">
+        <!-- Replace with your actual logo -->
+        <img src="https://res.cloudinary.com/sixty-seconds/image/upload/v1743492973/2025%20Rive%20Projects/Rive%20Preview%20Assets/sixtyseconds-logo-final-semi-white_sqdord.png" alt="Your Logo">
+      </div>
+      <div class="nav-text">
+        Unlocking the Power of Video
+      </div>
+    </header>
+  
+  
+    <!-- WIDGET WRAPPER -->
+    <div id="widget-wrapper">
+      <div id="ssv_player_container"></div>
+    </div>
+  </div>
+
+
+  
+  <!-- External Scripts -->
+  <script src="https://admin.sixtyseconds.video/outbound-automation/combined/SSVWidget.js"></script>
+  <script src="https://unpkg.com/@rive-app/canvas@2.23.0"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ssvWidget = new SSVWidget();
+      ssvWidget.setPageViewWebhookUrl('');
+      ssvWidget.setVideoViewWebhookUrl('');
+      ssvWidget.setPageViewNotificationEnabled(true);
+      ssvWidget.setVideoViewNotificationEnabled(true);
+      ssvWidget.addWebhookData('video_id', '78952');
+      ssvWidget.setOverwriteOpengraph(true);
+      
+      // Widget configuration
+      ssvWidget.setRiveStateMachine('sixtyseconds-state-machine');
+      ssvWidget.setRiveMainArtboard('sixtyseconds-main-artboard');
+      ssvWidget.setVideoUrl('https://res.cloudinary.com/sixty-seconds/video/upload/v1747912478/2025%20Rive%20Projects/25063%20-%20Undetectable%20AI/Undetectable_AI_02.mp4');
+      ssvWidget.setRiveUrl('https://res.cloudinary.com/sixty-seconds/raw/authenticated/s--M4qpNATf--/v1747912653/2025%20Rive%20Projects/25063%20-%20Undetectable%20AI/undetectable_ai_rive02.riv');
+      ssvWidget.setAudioDefaultUrl('https://res.cloudinary.com/sixty-seconds/video/upload/v1747912730/2025%20Rive%20Projects/25063%20-%20Undetectable%20AI/undetectableai_2_test_audio.mp3');
+      ssvWidget.setAudioBackgroundUrl('');
+      ssvWidget.setAudioCustomBaseUrl('https://make-com-assets.s3.eu-west-2.amazonaws.com/rive-audio/IQPC-Jenny-Names/');
+      ssvWidget.setAudioCustomGenerateUrl('https://hook.eu1.make.com/edjhztjzhr7gd3t61nbrqombgx9l9tny?Name-Tag1={customAudioValue}&FullString={customAudioValue}');
+      ssvWidget.setRiveOpenLinkUrl('https://undetectable.ai/');
+      
+      ssvWidget.construct();
+    });
+  </script>
+</body>
+</html>
